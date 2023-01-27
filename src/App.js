@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  RouterProvider,
+  createBrowserRouter,
+  Navigate,
+} from "react-router-dom";
+import { FormContextProvider } from "./context/FormContext";
+import "./App.css";
+
+import StomachPage from "./pages/Stomach";
+import HandPage from "./pages/Hand";
+
+const router = createBrowserRouter([
+  {
+    path: "/stomach",
+    element: <StomachPage />,
+  },
+  {
+    path: "/hand",
+    element: <HandPage />,
+  },
+  {
+    path: "*",
+    element: <Navigate to="/stomach" replace />,
+  },
+]);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FormContextProvider>
+      <section className="h-screen flex flex-col text-center justify-between items-center py-1">
+        <RouterProvider router={router} />
+      </section>
+    </FormContextProvider>
   );
 }
 

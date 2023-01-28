@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React,{ useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import FormContext from "../../context/FormContext";
 
@@ -29,4 +29,4 @@ const ButtonNext = (props) => {
   );
 };
 
-export default ButtonNext;
+export default React.memo( ButtonNext);

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React,{ useContext } from "react";
 import FormContext from "../../context/FormContext";
 
 const Button = (props) => {
@@ -7,9 +7,7 @@ const Button = (props) => {
   const onClickHandler = () => {
     if (props.topic === "abs") formCtx.updateStomach(props.name);
     else formCtx.updateHand(props.name);
-    console.log(props.name);
   };
-
   const isHighlightStomach =
     props.topic === "abs" &&
     formCtx.selectedStomach &&
@@ -35,7 +33,7 @@ const Button = (props) => {
         props.style.map((style) => (
           <button
             onClick={onClickHandler}
-            className={`absolute translate-x-center translate-y-center top-1/2 left-1/2 z-50 bg-transparent ${style}`}
+            className={`absolute top-1/2 left-1/2 z-50 bg-transparent ${style}`}
           ></button>
         ))}
 
@@ -57,4 +55,4 @@ const Button = (props) => {
   );
 };
 
-export default Button;
+export default React.memo( Button);

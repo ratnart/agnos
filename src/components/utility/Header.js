@@ -1,3 +1,5 @@
+import React from "react";
+
 const Header = (props) => {
   return (
     <div className="text-lg sm:text-xl md:text-2xl font-header font-medium mt-[1px]">
@@ -6,4 +8,4 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

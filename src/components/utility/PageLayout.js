@@ -1,3 +1,5 @@
+import React from "react";
+
 import Button from "./Button";
 import ButtonNext from "./ButtonNext";
 import Header from "./Header";
@@ -28,4 +30,4 @@ const PageLayout = (props) => {
   );
 };
 
-export default PageLayout;
+export default React.memo(PageLayout);
